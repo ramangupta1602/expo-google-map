@@ -50,7 +50,7 @@ export default function AirbnbScreen() {
         <View style={{ flex: 1 }}>
           <Text style={styles.listTitle}>Over {apartments.length} places</Text>
           <BottomSheetFlatList
-            data={apartments}
+            data={[...apartments].sort((a, b) => a.price - b.price)}
             contentContainerStyle={{ gap: 10, padding: 10 }}
             renderItem={({ item }) => <ApartmentListItem apartment={item} />}
           />
